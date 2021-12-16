@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>${title}</title>
+        <link rel="stylesheet" type="text/css" href="./${css_path}" />
+        <style>
+            div { display: block; }
+            #container { display: flex; flex-wrap: wrap; }
+            .item { display: flex; flex: 1 1 20%; }
+            .icon { font-size: 2em; }
+            .icon + span { margin-left: 0.5em; }
+            .item .description { display: flex; flex-flow: column; }
+        </style>
+        <script type="text/javascript">
+            function createItem(code, name) {
+                var node = document.createElement("div");
+                node.className = "item";
+                node.innerHTML = "<icon class=\"icon icon-" + prefix + "-" + name + "\"></icon>"
+                    + "<div class=\"description\"><span>" + name + "</span>"
+                    + "<span>0x" + parseInt(code).toString(16) + "</span></div>";
+                return node;
+            }
+            var data = ${jsondata};
+            var prefix = "${prefix}";
+            document.addEventListener("DOMContentLoaded", function() {
+                var container = document.getElementById("container");
+                for (var key of Object.keys(data)) {
+                    container.appendChild(createItem(key, data[key]));
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <h3>${title}</h3>
+        <hr/>
+        <div id="container"></div>
+    </body>
+</html>
