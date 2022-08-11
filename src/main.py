@@ -90,15 +90,15 @@ class Main:
         demo.exportDemo(self.outputdir)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='VNPT - Font Icon Generater')
+    parser = argparse.ArgumentParser(description='Font Icon Generater')
     parser.add_argument("--projectname", default="font")
-    parser.add_argument("--sourcedir")
-    parser.add_argument("--outputdir", default="./build")
+    parser.add_argument("--input")
+    parser.add_argument("--output", default="./output")
     args = parser.parse_args()
 
     prefix    = args.projectname
-    sourcedir = args.sourcedir
-    outputdir = args.outputdir
+    sourcedir = args.input
+    outputdir = args.output
 
     app = Main(sourcedir, prefix, outputdir)
     app.generateFont()
