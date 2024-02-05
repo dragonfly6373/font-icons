@@ -1,12 +1,12 @@
 {
     "ascent": 819,
-    "copyright": "Copyright (c) 2021, VNPT.",
+    "copyright": "© Copyright by ISC - 2021",
     "descent": 205,
     "em": 1024,
     "encoding": "UnicodeBmp",
-    "familyname": "GoMeet",
-    "fontname": "GoMeet",
-    "fullname": "GoMeet",
+    "familyname": "font-icon",
+    "fontname": "font-icon",
+    "fullname": "font-icon",
     "version": "001.000",
     "weight": "Regular"
 }
