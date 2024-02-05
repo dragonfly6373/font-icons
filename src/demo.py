@@ -3,7 +3,7 @@ import re
 import json
 
 class Demo:
-    def __init__(self, ddata, prefix = "vnpt") -> None:
+    def __init__(self, ddata, prefix = "font") -> None:
         self.ddata = ddata
         self.prefix = prefix
 
