@@ -90,7 +90,7 @@ class Main:
         print("generate css")
 
     def generateDemoHtml(self):
-        demo = Demo(self.ddata, prefix="font-icon")
+        demo = Demo(self.ddata, self.prefix)
         demo.exportDemo(self.outputdir)
 
 if __name__ == "__main__":
