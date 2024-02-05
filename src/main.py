@@ -5,6 +5,7 @@ import argparse
 import json
 import fontforge
 import namelist
+from pathlib import Path
 from demo import Demo
 
 class Main:
@@ -40,7 +41,10 @@ class Main:
         self.sourcedir = sourcedir
 
     def generateFont(self):
-        f = namelist.toFile(self.ddata, os.path.join(self.outputdir, "namelist.nam"))
+        output_file = os.path.join(self.outputdir, "namelist.nam")
+        Path(output_file).parent.mkdir(exist_ok=True, parents=True)
+        # os.makedirs(os.path.dirname(self.outputdir), exist_ok=True)
+        f = namelist.toFile(self.ddata, output_file)
         fontforge.loadNamelist(f)
         font = fontforge.font()
         # self.loadConfig(font)
@@ -86,7 +90,7 @@ class Main:
         print("generate css")
 
     def generateDemoHtml(self):
-        demo = Demo(self.ddata, prefix="gomeet")
+        demo = Demo(self.ddata, prefix="font-icon")
         demo.exportDemo(self.outputdir)
 
 if __name__ == "__main__":
